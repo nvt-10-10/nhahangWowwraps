@@ -1,0 +1,173 @@
+.main--inner {
+    margin: 125px 0 150px;
+    display: flex;
+    justify-content: space-between;
+}
+.form-billing{
+    width: 49%;
+}
+.billing-details {
+    width: 100%;
+}
+
+.checkout__title {
+    color: var(--white, #fff);
+
+    /* H4 */
+    font-family: Libre Bodoni;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.3333; /* 133.333% */
+}
+
+.form-row {
+    margin-top: 24px;
+    display: flex;
+    column-gap: 30px;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    width: 100%;
+    color: #fff;
+    /* 16 */
+    font-family: Plus Jakarta Sans;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.625; /* 162.5% */
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-input-textarea{
+    resize: none;
+    height: 100px;
+    grid-column: span 2;
+}
+
+.form-input:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.paymentMethods {
+    margin-top: 60px;
+    position: relative;
+    padding: 28px 28px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.radio-btn + .radio-btn {
+    margin-top: 24px;
+}
+
+.radio-label {
+    color: #fff;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.radio-label::before,
+.radio-label::after {
+    content: "";
+    display: inline-flex;
+}
+.radio-label::before {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.radio-check {
+    display: none;
+}
+
+.radio-check:checked + .radio-label::after {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    background: #fb8f2c;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.paymentMethods-desc {
+    margin-top: 40px;
+}
+
+.paymentMethods-desc em {
+    color: #fb8f2c;
+}
+
+.form-group-order {
+    margin-top: 28px;
+}
+.form-submit-order {
+    width: 100%;
+    display: flex;
+    padding: 8px 30px;
+    justify-content: center;
+    background: var(--dark-orange, #fb8f2c);
+    color: #fff;
+}
+
+.order {
+    flex: none;
+    width: 40%;
+    height: 100%;
+    margin-top: 15px;
+    padding: 28px 28px 0;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.03);
+    flex-grow: 0; /* Không tự mở rộng */
+    flex-shrink: 0; /* Không thu nhỏ */
+    flex-basis: auto; /* Kích thước theo nội dung */
+}
+
+.order__title {
+    margin-top: 40px;
+    color: #fff;
+
+    /* 18 */
+    font-family: Plus Jakarta Sans;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5555; /* 155.556% */
+}
+
+.order__item {
+    display: flex;
+    width: 100%;
+    padding: 24px 28px 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.order__item:last-of-type {
+    border-bottom: none;
+}
+
+.order__right {
+    width: 26%;
+    margin-left: auto;
+}
+
+.order__left {
+    margin-right: 20px;
+}
+

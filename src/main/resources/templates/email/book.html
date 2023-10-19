@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <p style="color: black;">Chào quý khách hàng thân mến,</p>
+    <p style="color: black;">
+        Chúng tôi xin chân thành cảm ơn bạn đã chọn <span style="color: black; font-weight: bold">Wowwraps</span> để tổ chức buổi ăn của bạn. Chúng tôi đã nhận được yêu cầu
+        đặt bàn của bạn và rất vui thông báo rằng yêu cầu của bạn đã được xác nhận như sau:</p>
+    <p th:text="'Tên khách hàng: ' + ${book.name}" style="color: black;"></p>
+    <p th:text="'Ngày: ' + ${book.getDateFormat()}" style="color: black;"></p>
+    <p th:text="'Giờ: ' + ${book.time}" style="color: black;"></p>
+    <p th:text="'Số lượng người: ' + ${book.numberPerson}" style="color: black;"></p>
+    <p th:if="${book.message!=null}">
+        <span style="color: black;" th:text="'Yêu cầu: ' + ${book.message}"></span>
+    </p>
+    <p style="color: black;">
+        Chúng tôi đã đặt bàn cho bạn vào thời gian và ngày bạn yêu cầu, và chúng tôi đã thực hiện mọi phần công việc cần
+        thiết để đảm bảo bạn có một trải nghiệm thú vị tại <span style="color: black; font-weight: bold">Wowwraps</span>. Nhóm của chúng tôi sẽ sẵn sàng để phục vụ bạn
+        vào ngày <span th:text="${book.getDateFormat()}" style="color: black;"></span> lúc <span th:text="${book.time}" style="color: black;"></span>.
+    </p >
+    <p style="color: black;">Nếu bạn có bất kỳ thay đổi nào về đặt bàn hoặc cần hủy đặt bàn, vui lòng liên hệ với chúng tôi trước [Thời gian
+        hạn chót hủy đặt bàn] để chúng tôi có thể sắp xếp lại lịch đặt bàn một cách thích hợp.</p>
+    <p style="color: black;">
+        Nếu bạn có bất kỳ câu hỏi hoặc yêu cầu đặc biệt nào thêm, xin vui lòng liên hệ với chúng tôi qua số điện thoại
+        <a href="tel:0332895346">+84 332 895 346</a> hoặc email <a href="mailto:wowwraps1010@gmail.com&subject=Phản hồi">
+        wowwraps1010@gmail.com</a>. Chúng tôi rất mong được phục vụ bạn và đảm bảo rằng bạn sẽ có một trải nghiệm tuyệt
+        vời tại <span style="color: black; font-weight: bold">Wowwraps</span>.
+    </p>
+
+    <p style="color: black; margin-top: 20px">Cảm ơn bạn đã chọn <span style="color: black; font-weight: bold">Wowwraps</span>. Chúng tôi rất mong được gặp bạn vào ngày <span th:text="${book.getDateFormat()}" style="color: black;"></span> !</p>
+    <p style="color: black;">Trân trọng,</p>
+    <p style="color: black;">Wowwraps</p>
+    <p style="color: black;"><a href="tel:0332895346">+84 332 895 346</a></p>
+    <p style="color: black;"><a href="mailto:wowwraps1010@gmail.com">wowwraps1010@gmail.com</a></p>
+
+</div>
+</body>
+</html>

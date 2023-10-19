@@ -1,0 +1,437 @@
+.main_control {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-btn,
+.add-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border: none;
+    background: #161c24;
+    color: aliceblue;
+    border-radius: 4px;
+}
+
+.add-btn:focus {
+    outline: none;
+}
+
+.search-btn:hover,
+.add-btn:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.form-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-search {
+    height: 48px;
+    padding: 8px 16px;
+    border: 1px solid #333232;
+}
+
+.input-search:focus {
+    outline: none;
+    border-width: 2px;
+    border-color: #000;
+}
+
+.confirm,
+.Add-edit {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: background-color 0.5s;
+    overflow: auto;
+    z-index: 2;
+
+}
+
+.label-upload {
+    padding: 4px 8px;
+    background: #ccc;
+    border: 1px solid #8e8c8c;
+}
+
+.main-addEdit {
+    position: relative;
+    width: 60%;
+    max-height: 80%;
+    background: #fff;
+    padding: 30px;
+    margin: 0 auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+.header-sticky {
+    position: sticky;
+    padding: 30px;
+    padding-bottom: 20px;
+    top: 0;
+    width: 100%;
+    background-color: white; /* Điều này phụ thuộc vào màu nền bạn muốn sử dụng */
+    z-index: 1;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.header-addEdit {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.img-chef {
+    margin-top: 20px;
+    width: 88.88px;
+    height: 88.88px;
+    object-fit: cover;
+    /* border: 1px solid #ccc; */
+    background: #fff;
+}
+
+.input-file {
+    margin-top: 10px;
+}
+
+.row-upload {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#inputFile {
+    display: none;
+}
+
+.form-row {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.form-input {
+    padding: 8px;
+    width: 80%;
+    margin-left: auto;
+    border: 1px solid #000;
+}
+
+.form-input:focus {
+    outline: none;
+    outline: 1px solid #000;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-input-textarea {
+    display: inline-block;
+    resize: none;
+    width: 80%;
+    height: 100px;
+}
+
+.form-submit {
+    border: none;
+    padding: 16px 32px;
+    border: none;
+    background: #161c24;
+    color: #fff;
+    margin-left: auto;
+    border-radius: 4px;
+}
+
+.form-submit:hover {
+    cursor: pointer;
+}
+
+.icon-close {
+    position: absolute;
+    /* background: #fff; */
+    height: 24px;
+    width: 24px;
+    right: 20px;
+    top: 20px;
+}
+
+.icon-close:hover {
+    cursor: pointer;
+}
+
+.page {
+    margin-top: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page__list {
+    display: flex;
+    align-items: center;
+    column-gap: 36px;
+}
+
+.page__link,
+.page__item__link {
+    padding: 4px 9px;
+
+    color: var(--gray, #373739);
+    /* 20 */
+    font-family: Poppins;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.8px;
+}
+
+.page__active {
+    background: #22201f;
+    color: #fff;
+
+}
+
+.page__item__link:not(.page__active):hover {
+    color: #22201f;
+}
+
+.page__active .page__item__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page__link {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    color: var(--black, #22201f);
+}
+
+.page__link:hover {
+    color: var(--white-gray-2, #828282);
+}
+
+.page__next {
+    rotate: 180deg;
+}
+
+.table {
+    margin-top: 50px;
+}
+
+.action-table {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-item,
+.table-title {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 3fr 4fr 2fr;
+    gap: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.table-title {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.table-title span {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.table-item {
+    align-items: center;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.table-item + .table-item {
+    margin-top: 20px;
+}
+
+.image {
+    max-width: 88.88px;
+    aspect-ratio: 1; /* Đặt tỷ lệ khung hình 1:1 (chiều rộng và chiều cao bằng nhau) */
+    object-fit: cover; /* Để hình ảnh lấp đầy khu vực giới hạn */
+    width: 100%;
+}
+
+.table-item-action {
+    display: flex;
+    justify-content: space-between;
+align-items: center;
+
+}
+
+.action-delete {
+    fill: #ff0000;
+}
+
+.title {
+    color: var(--neutral-800, #262626);
+    font-family: Poppins;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.confirm-button,
+.cancel-button,
+.delete-button,
+.edit-button {
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.confirm-button:hover,
+.cancel-button:hover,
+.delete-button:hover,
+.edit-button:hover {
+    cursor: pointer;
+}
+
+
+.main {
+    position: relative;
+}
+
+.Notification {
+    display: none;
+    align-items: center;
+    gap: 20px;
+    position: fixed;
+    padding: 20px;
+    width: 300px;
+    top: 20px;
+    right: 30px;
+    background: #fff;
+    padding: 30px;
+    margin: 0 auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.notification__icon {
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+}
+
+
+.confirm__main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    width: 40%;
+    background: #fff;
+    padding: 30px;
+    margin: 0 auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.confirm__icon {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.confirm__Action {
+    margin-left: auto;
+}
+
+.confirm__Action__btn:hover {
+    opacity: 0.9;
+}
+
+.confirm__Action__btn:focus {
+    outline: none;
+    border: none;
+}
+
+.confirm__Action__btn {
+    border: none;
+    background: transparent;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+.confirm__Action__delete {
+    background: #04ad1d;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.confirm__Action__btn:hover {
+    cursor: pointer;
+}
+
+/*.form{*/
+/*    margin-top: 20px;*/
+/*}*/
+
+.form-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.textarea {
+    resize: none;
+    height: 100px;
+}
+.Reason{
+    display: none;
+}
+.main-addEdit .textarea {
+    height: 80%;
+}
+
+/* Thiết lập thanh cuộn tùy chỉnh nếu cần */
+::-webkit-scrollbar {
+    width: 2px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}

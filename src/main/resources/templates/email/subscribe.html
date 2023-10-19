@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+    <div>
+        <p style="color: black;">Chào quý khách hàng thân mến,</p>
+        <p style="color: black;">Chúng tôi xin chân thành cảm ơn bạn đã đăng ký để nhận thông báo từ nhà hàng của chúng
+            tôi. Bằng cách đăng ký, bạn sẽ luôn được cập nhật về các sự kiện, khuyến mãi đặc biệt và tin tức mới nhất từ
+            nhà hàng.
+        </p>
+        <p style="color: black;">Chúng tôi cam kết rằng chúng tôi sẽ gửi cho bạn những thông báo quan trọng và hấp dẫn,
+            và chúng tôi luôn đặt sự riêng tư của bạn lên hàng đầu. Địa chỉ email của bạn sẽ được bảo vệ và không bao
+            giờ được tiết lộ cho bất kỳ bên thứ ba nào.
+        </p>
+        <p style="color: black;">Như một dấu ơn đặc biệt, chúng tôi xin tặng bạn một voucher giảm giá trị lên đến [giá
+            trị giảm giá] khi bạn đến thưởng thức món ăn tại nhà hàng của chúng tôi. Voucher này có thời hạn là 1 tháng
+            từ ngày nhận email này.
+        </p>
+        <p style="color: black;" th:text="'Voucher: '+${voucher.code}"></p>
+        <p style="color: black;" th:text="'Thời hạn: '+${voucher.getDateVN(voucher.endDate)}"></p>
+        <p style="color: black;">
+            Nếu bạn có bất kỳ câu hỏi hoặc yêu cầu đặc biệt nào, xin vui lòng liên hệ với chúng tôi qua email hoặc số
+            điện thoại dưới đây: </p>
+        <p style="color: black;">Email: <a href="mailto:wowwraps1010@gmail.com">wowwraps1010@gmail.com</a></p>
+        <p style="color: black;">Số điện thoại: <a href="tel:0332895346">+84 332 895 346</a></p>
+
+        <p style="color: black;">
+            Chúng tôi rất mong được phục vụ bạn và chia sẻ những trải nghiệm ẩm thực tuyệt vời tại nhà hàng của chúng tôi. Hãy chờ đợi những thông báo thú vị trong tương lai!
+        </p>
+        <p style="color: black;">Cảm ơn bạn đã lựa chọn nhà hàng của chúng tôi và chúc mừng bạn đã trở thành một phần của cộng đồng của chúng tôi.
+        </p>
+        <p style="color: black; font-weight: bold">Trân trọng,</p>
+        <p style="color: black; font-weight: bold">Wowwraps</p>
+
+    </div>
+    </body>
+    </html>
+
+</div>
+</body>
+</html>

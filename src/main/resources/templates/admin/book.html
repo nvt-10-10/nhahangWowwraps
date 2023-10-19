@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/reset.css"/>
+    <link rel="stylesheet" href="/assets/css/commonAdmin.css"/>
+    <link rel="stylesheet" href="/assets/css/main_control.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+    />
+    <style>
+        .table-item,
+        .table-title {
+            gap: 10px;
+            grid-template-columns: 0.5fr 2fr repeat(3, 1fr ) 3.5fr 1fr;
+        }
+
+        .confirm-button, .cancel-button, .edit-button {
+            display: inline-block;
+            padding: 8px 5px;
+        }
+
+        .main-addEdit {
+            padding: 0;
+        }
+
+        #addForm,#reasonForm {
+            padding: 30px;
+            padding-top: 0;
+        }
+        .action {
+            justify-content: end;
+        }
+    </style>
+</head>
+<body>
+<div th:insert="admin/header :: header"></div>
+<main class="main">
+    <h2 class="title">Category List</h2>
+
+    <section class="main_control">
+        <div class="action">
+
+            <form class="form-action" id="searchForm">
+                <input
+                        type="search"
+                        name="keyword"
+                        class="input-search"
+                        placeholder="Search"
+                />
+                <input
+                        type="submit"
+                        value="Search"
+                        class="search-btn"
+                />
+            </form>
+        </div>
+
+        <section class="table">
+            <div class="table-title">
+                <span>ID</span>
+                <span>Name</span>
+                <span>Person</span>
+                <span>Date</span>
+                <span>Time</span>
+                <span>Message</span>
+                <span>Action</span>
+            </div>
+
+            <div id="List">
+                <div class="table-item" th:each="item,index : ${books}">
+                    <div class="table-item-column"><p th:text="${item.id}">1</p></div>
+                    <div class="table-item-column ">
+                        <p th:text="${item.name}" class="line-clamp">Nguyen Van Tuyen</p>
+                    </div>
+                    <div class="table-item-column">
+                        <p th:text="${item.numberPerson}">Nguyen Van Tuyen</p>
+                    </div>
+                    <div class="table-item-column">
+                        <p th:text="${item.dateFormat}">Nguyen Van Tuyen</p>
+                    </div>
+                    <div class="table-item-column">
+                        <p th:text="${item.formattedTime()}">Nguyen Van Tuyen</p>
+                    </div>
+                    <div class="table-item-column">
+                        <p th:text="${item.message}" class="line-clamp">Nguyen Van Tuyen</p>
+                    </div>
+
+                    <div class="table-item-column table-item-action">
+                        <a class="edit-button" th:data-id="${item.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"
+                                />
+                            </svg>
+                        </a>
+
+                        <a class="confirm-button" th:data-id="${item.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <style> .confirm-button svg {
+                                    fill: #3bff05
+                                }</style>
+                                <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                            </svg>
+                        </a>
+
+                        <a class="cancel-button" th:data-id="${item.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                                <style> .cancel-button svg {
+                                    fill: #ff0000
+                                }</style>
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div id="paginationContainer">
+            <div class="page" th:if="${pageCount>1}">
+                <a class="page__link" id="backPage">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="21"
+                            height="10"
+                            viewBox="0 0 21 10"
+                            fill="none"
+                    >
+                        <path
+                                d="M20 5H1M1 5C2.43939 4.78667 5.31818 3.688 5.31818 1M1 5C2.43939 5.21333 5.31818 6.312 5.31818 9"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </svg>
+                    Previous</a
+                >
+                <ul class="page__list" th:data-countpage="${pageCount}">
+                    <li class="page__item" th:each="pageNum : ${#numbers.sequence(1, pageCount)}">
+                        <a href="#!" class="page__item__link"
+                           th:text="${pageNum}"
+                           th:data-indexpage="${pageNum}-1"
+                           th:classappend="${pageNum - 1 == indexPage ? 'page__active ' : ''}"
+                           th:if="${pageNum <= 5 or pageNum == chefCount}">
+                            <!-- Hiển thị các số từ 1 đến 5 và số cuối cùng -->
+                            <span th:if="${pageNum == chefCount}" th:text="${pageNum}">5</span>
+                            ...
+                        </a>
+                    </li>
+                </ul>
+
+                <a class="page__link" id="nextPage"
+                >Next
+
+                    <svg
+                            class="page__next"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="21"
+                            height="10"
+                            viewBox="0 0 21 10"
+                            fill="none"
+                    >
+                        <path
+                                d="M20 5H1M1 5C2.43939 4.78667 5.31818 3.688 5.31818 1M1 5C2.43939 5.21333 5.31818 6.312 5.31818 9"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <section class="Notification">
+        <img
+                src="/assets/icons/index-admin/success.png"
+                alt=""
+                class="notification__icon"
+        />
+        <p class="message">Them san pham thanh cong</p>
+    </section>
+</main>
+<section class="confirm">
+    <div class="confirm__main">
+        <img
+                src="./assets/icons/index-admin/warning.png"
+                alt=""
+                class="confirm__icon"
+        />
+        <p class="confirm__message">
+            Bạn có chắc chắn muốn xóa không. Khi xóa sẽ mất hoàn toàn dữ liệu
+        </p>
+
+        <div class="confirm__Action">
+            <button class="confirm__Action__btn" id="confirm__Action__No">Không</button>
+            <button
+                    class="confirm__Action__btn confirm__Action__delete"
+                    id="confirm__Action__delete"
+            >
+                Có
+            </button>
+        </div>
+    </div>
+</section>
+<section class="Add-edit">
+    <div class="main-addEdit">
+        <div class="header-sticky">
+            <header class="header-addEdit">
+                <h2 class="form-title">Add Product</h2>
+                <img src="/assets/icons/index-admin/close.png" alt="" class="icon-close" id="close"/>
+            </header>
+        </div>
+
+        <form action="" th:object="${book}" style="margin-top: 40px" id="addForm" class="form" method="post"
+        >
+            <div class="form-row">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" th:field="*{name}" name="name" id="name" class="form-input" required/>
+            </div>
+
+            <div class="form-row">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" th:field="*{phone}" name="phone" id="phone" class="form-input" required/>
+            </div>
+
+            <div class="form-row">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" th:field="*{email}" name="name" id="email" class="form-input" required/>
+            </div>
+
+            <div class="form-row">
+                <label for="numberPerson" class="form-label">Person</label>
+                <input type="number" min="1" value="1" th:field="*{numberPerson}" name="numberPerson" id="numberPerson"
+                       class="form-input" required/>
+            </div>
+
+            <div class="form-row">
+                <label for="time" class="form-label">Time</label>
+                <input type="time" name="time1" id="time" class="form-input" required/>
+            </div>
+
+            <div class="form-row">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" th:field="*{date}" name="date" id="date" class="form-input" required/>
+            </div>
+            <div class="form-row">
+                <label for="message" class="form-label">Message</label>
+
+                <textarea class="form-input form-input-textarea" id="message" placeholder="Message" th:field="*{message}">
+                       </textarea>
+            </div>
+
+            <!--            <div class="form-row">-->
+            <!--                <label for="name" class="form-label">Name</label>-->
+            <!--                <input type="text" th:field="*{name}" name="name" id="name" class="form-input" required/>-->
+            <!--            </div>-->
+            <input type="hidden" th:field="*{id}" name="id" id="id">
+            <input type="hidden" th:field="*{status}" name="status" id="status">
+            <div class="form-row">
+                <button class="form-submit" id="saveSubmitBtn" type="submit">Save</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<section class="Add-edit" id="reasonSection">
+    <div class="main-addEdit">
+        <div class="header-sticky">
+            <header class="header-addEdit">
+                <h2 class="form-title">Reason</h2>
+                <img src="/assets/icons/index-admin/close.png" alt="" class="icon-close" />
+            </header>
+        </div>
+
+        <form action="" th:object="${book}" style="margin-top: 40px" id="reasonForm" class="form" method="post"
+        >
+            <div class="form-row">
+                <label for="reason" class="form-label">Reason</label>
+                <textarea class="form-input form-input-textarea" name="reason" id="reason" required placeholder="Message" th:field="*{reason}">
+                </textarea>
+            </div>
+            <input type="hidden" th:field="*{id}" name="id" id="bookId">
+            <div class="form-row">
+                <button class="form-submit" id="saveReason" type="submit">Save</button>
+            </div>
+        </form>
+
+    </div>
+
+</section>
+<input type="hidden" id="indexPage" th:value="${indexPage}">
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/assets/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace("reason", {
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/assets/js/book.js"></script>
+
+</html>

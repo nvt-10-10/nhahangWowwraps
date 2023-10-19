@@ -1,0 +1,50 @@
+@media screen and (max-width: 990px) {
+    .meal {
+        padding: 24px 0;
+    }
+    .Breakfast {
+        padding-top: 80px;
+    }
+
+    .meal__list {
+        margin-top: 40px;
+    }
+
+    .meal__item {
+        width: calc(50% - 15px);
+    }
+    .meal__item + .meal__item {
+        margin-left: 30px;
+    }
+    .meal__item__heading {
+        min-height: auto;
+    }
+    .Journey {
+        margin-top: 46px;
+        margin-bottom: 40px;
+        padding: 30px 18px;
+    }
+    .Journey__heading {
+        margin-bottom: 18px;
+    }
+
+    .meal__item__Cta {
+        position: relative;
+        display: flex;
+        gap: 6px;
+        text-decoration: none;
+    }
+    .meal__item__Cta::after {
+        content: url(/assets/icons/menu/icon.png);
+        right: -6px;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .meal__item {
+        width: 100%;
+    }
+    .meal__item + .meal__item {
+        margin-left: 18px;
+    }
+}

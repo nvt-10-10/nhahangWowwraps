@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${product.name}"></title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/reset.css"/>
+    <link rel="stylesheet" href="/assets/css/Common.css"/>
+    <link rel="stylesheet" href="/assets/css/product__details.css"/>
+    <link rel="stylesheet" href="/assets/css/reponse__menu.css"/>
+    <!-- Js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--<script src="/assets/js/jquery.js"></script>-->
+    <script src="/assets/js/productDetail.js"></script>
+    <!-- Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+    />
+    <!-- W3 stars -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- favicon -->
+    <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/assets/favicon/android-icon-192x192.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/assets/favicon/favicon-96x96.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+</head>
+
+<body>
+<div th:insert="~{header::header}"></div>
+<main>
+    <section class="project">
+        <div class="container">
+            <div class="project__inner">
+                <figure class="project__thumb">
+                    <img
+                            th:src="${product.imageLink}"
+                            th:alt="${product.name}"
+                            class="project__img"
+                    />
+                </figure>
+                <section class="project-content">
+                    <h2 class="project__name section-heading" th:text="${product.name}">
+                    </h2>
+                    <div class="Star__rating">
+                        <div class="stars">
+    <span th:if="${star>0}" th:each="i : ${#numbers.sequence(1, star)}">
+        <span class="fa fa-star checked"></span>
+    </span>
+
+                            <span th:if="${star < 5}">
+        <span th:each="i : ${#numbers.sequence(1, (5 - star))}">
+            <span class="fa fa-star"></span>
+        </span>
+    </span>
+                        </div>
+
+
+                        <p class="section-desc"
+                           th:text="'( ' + ${countReview} + ' customer review' + (${countReview} > 1 ? 's' : '') + ' )'"></p>
+
+
+                    </div>
+                    <span class="section-heading" th:text="${product.getFormattedPrice()}"></span>
+
+
+                    </p>
+                    <form action="/addcart" class="form-project" method="post" id="addToCartForm">
+                        <button class="btn" type="button" id="btnMinus">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="12"
+                                    height="2"
+                                    viewBox="0 0 12 2"
+                                    fill="none"
+                            >
+                                <path
+                                        d="M1 1L11 1"
+                                        stroke="white"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                />
+                            </svg>
+                        </button>
+
+                        <input type="number" name="quantity" class="form-number-input" id="numberInput" value="1"
+                               min="1"
+                               th:data-maxQuantity="${product.quantity}" th:max="${product.quantity}"/>
+
+
+                        <button class="btn" type="button" id="btnPlus">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                            >
+                                <path
+                                        d="M1 6L11 6M6 1L6 11"
+                                        stroke="white"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                />
+                            </svg>
+                        </button>
+
+                        <button
+                                type="button"
+                                class="form-sumbit section-desc"
+                                id="buttonaddToCart"
+                        >
+                            <input type="hidden" th:value="${product.id}" name="idProduct" >
+                            ADD TO CARD
+                        </button>
+                    </form>
+                    <div class="project__info">
+                        <p style="display: none" class="IdProduct" th:text="${product.id}"></p>
+                        <strong
+                                class="section-desc project__info__item"
+                        >
+                            Quantity:
+                            <span class="section-desc" id="quantity" th:text="${product.quantity}">
+                                        </span
+                                        ></strong
+                        >
+
+                        <strong
+                                class="section-desc project__info__item"
+                        >
+                            CATEGORY:
+                            <span class="section-desc" th:text="${product.category.name}"> </span>
+                        </strong>
+                        <strong
+                                class="section-desc project__info__item"
+                        >
+                            TAGS:
+                            <span class="section-desc" th:text="${tags}"></span>
+                        </strong>
+                    </div>
+                </section>
+            </div>
+            <div class="project-tabs">
+                <nav class="navbar__Tab">
+                    <ul class="navbar__list">
+                        <li class="navbar__Tab__item">
+                            <a href="#" id="descriptionTabLink" class="navbar__Tab__link nav-active">Description</a>
+                        </li>
+                        <li class="navbar__Tab__item">
+                            <a href="#" id="reviewsTabLink" class="navbar__Tab__link"
+                               th:text="'Reviews ('+${countReview}+')'"></a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="description__tab" id="descriptionTab">
+                    <p class="section-desc Description__desc">
+                        Lorem ipsum dolor sit amet, consectetuer
+                        adipiscing elit. Aenean commodo ligula eget
+                        dolor. Aenean massa. Cum sociis natoque
+                        penatibus et magnis dis parturient montes,
+                        nascetur ridiculus mus. Donec quam felis,
+                        ultricies nec, pellentesque eu, pretium quis,
+                        sem. Nulla consequat massa quis enim. Donec pede
+                        justo, fringilla vel, aliquet nec, vulputate
+                        eget, arcu. In enim justo, rhoncus ut, imperdiet
+                        a, venenatis vitae, justo. Nullam dictum felis
+                        eu pede mollis pretium. Integer tincidunt.
+                        <br/>
+                        <br/>Cras dapibus. Vivamus elementum semper
+                        nisi. Aenean vulputate eleifend tellus. Aenean
+                        leo ligula, porttitor eu, consequat vitae,
+                        eleifend ac, enim. Aliquam lorem ante, dapibus
+                        in, viverra quis, feugiat a, tellus.
+                    </p>
+                </div>
+                <section class="Reviews__tab" id="reviewsTab">
+                    <div class="review__list">
+                        <section class="review__item" th:each="item : ${reviews}">
+                            <figure class="review__item__thumb">
+                                <img
+
+                                        src="/assets/imgs/project__deatails/av1.png"
+                                        alt=""
+                                        class="review__item__img"
+                                />
+                            </figure>
+                            <div class="review__item__info">
+                                <div class="review__item__row">
+                                            <span class="review__item__name" th:text="${item.name}">
+                                            </span>
+
+                                    <div class="icon">
+                                        <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="10"
+                                                height="2"
+                                                viewBox="0 0 10 2"
+                                                fill="none"
+                                        >
+                                            <path
+                                                    d="M1 1H9"
+                                                    stroke="white"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+
+                                    <span class="review__item__date" th:text="${item.getDate()}">
+                                                </span
+                                                >
+                                </div>
+                                <p
+                                        class="review__item__review section-desc" th:text="${item.message}"
+                                >
+
+                                </p>
+                                <div class="stars review__item__stars">
+                                          <span th:if="${item.review>0}"
+                                                th:each="i : ${#numbers.sequence(1, item.review)}">
+        <span class="fa fa-star checked"></span>
+    </span>
+
+                                    <span th:if="${item.review < 5}">
+        <span th:each="i : ${#numbers.sequence(1, (5 - item.review))}">
+            <span class="fa fa-star"></span>
+        </span>
+    </span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <section class="Add-review">
+                        <h3 class="Add-review__heading">
+                            Add a review
+                        </h3>
+                        <p class="section-desc">
+                            Your email address will not be published.
+                            Required fields are marked *
+                        </p>
+                        <form action="#!" class="from-review" method="post">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label
+                                            for=""
+                                            class="form-label section-desc"
+                                    >Your name *</label
+                                    >
+                                    <input
+                                            type="text"
+                                            class="form-input form-input-username"
+                                            placeholder="Enter Username"
+                                            name="name"
+
+                                            th:value="${session.userReview.name != null ? session.userReview.name : ''}"
+                                    />
+                                    <svg
+                                            class="form-icon form-icon-user"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                    >
+                                        <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M11.9849 15.3457C8.11731 15.3457 4.81445 15.9305 4.81445 18.2724C4.81445 20.6143 8.09636 21.22 11.9849 21.22C15.8525 21.22 19.1545 20.6343 19.1545 18.2933C19.1545 15.9524 15.8735 15.3457 11.9849 15.3457Z"
+                                                stroke="white"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                        />
+                                        <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M11.9849 12.0059C14.523 12.0059 16.5801 9.94779 16.5801 7.40969C16.5801 4.8716 14.523 2.81445 11.9849 2.81445C9.44679 2.81445 7.3887 4.8716 7.3887 7.40969C7.38013 9.93922 9.42394 11.9973 11.9525 12.0059H11.9849Z"
+                                                stroke="white"
+                                                stroke-width="1.42857"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
+
+                                <div class="form-group">
+                                    <label
+                                            for=""
+                                            class="form-label section-desc"
+                                    >Email address *</label
+                                    >
+                                    <input
+                                            type="email"
+                                            name="email"
+                                            class="form-input form-input-email"
+                                            placeholder="Enter Email"
+
+                                            th:value="${session.userReview.email != null ? session.userReview.email : ''}"
+                                    />
+                                    <svg
+                                            class="form-icon form-icon-email"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                    >
+                                        <path
+                                                d="M17.9024 8.85156L13.4591 12.4646C12.6196 13.1306 11.4384 13.1306 10.5989 12.4646L6.11816 8.85156"
+                                                stroke="white"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                        />
+                                        <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M16.9089 21C19.9502 21.0084 22 18.5095 22 15.4384V8.57001C22 5.49883 19.9502 3 16.9089 3H7.09114C4.04979 3 2 5.49883 2 8.57001V15.4384C2 18.5095 4.04979 21.0084 7.09114 21H16.9089Z"
+                                                stroke="white"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
+
+                                <div class="form-group">
+                                    <label
+                                            for=""
+                                            class="form-label section-desc"
+                                    >Website *</label
+                                    >
+                                    <input
+                                            type="text"
+                                            name="website"
+                                            class="form-input"
+                                            placeholder="Enter website"
+
+                                            th:value="${session.userReview.website != null ? session.userReview.website : ''}"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="Evaluate">
+                                        <span class="section-desc">
+                                            Your rating
+                                        </span>
+                                <div class="stars Evaluate-starts">
+                                    <label class="fa fa-star checked" for="star_1"></label>
+                                    <input type="radio" id="star_1" name="review" value="1" class="radio-star">
+                                    <label class="fa fa-star checked" for="star_2"></label>
+                                    <input type="radio" id="star_2" name="review" value="2" class="radio-star">
+                                    <label class="fa fa-star checked" for="star_3"></label>
+                                    <input type="radio" id="star_3" name="review" value="3" class="radio-star">
+                                    <label class="fa fa-star checked" for="star_4"></label>
+                                    <input type="radio" id="star_4" name="review" value="4" class="radio-star">
+                                    <label class="fa fa-star checked" for="star_5"></label>
+                                    <input type="radio checked" id="star_5" name="review" value="5" class="radio-star"
+                                           checked>
+                                </div>
+                            </div>
+
+                            <div class="Comment">
+                                <label
+                                        for=""
+                                        class="form-lable section-desc"
+                                >Wirte review *</label
+                                >
+                                <textarea
+                                        name="message"
+                                        class="form-textarea section-desc"
+                                        id=""
+                                        cols="30"
+                                        rows="10"
+                                        placeholder="Enter review"
+                                ></textarea>
+                            </div>
+                            <div class="form-row-checkbox">
+                                <input
+                                        type="checkbox"
+                                        name="saveReview"
+                                        class="form-checkout-input"
+                                        id="checkbox-session"
+                                        th:checked="${session.userReview != null}"
+                                />
+                                <label
+                                        class="section-desc"
+                                        id="checkbox-icon"
+                                        for="checkbox-session"
+                                >Save my name, email, and website in
+                                    this browser for the next time I
+                                    comment.</label
+                                >
+                            </div>
+                            <div class="form-row-sumbit">
+                                <button
+                                        type="submit"
+                                        class="form-sumbit section-desc"
+                                        id="submitComment"
+                                >
+                                    Submit
+                                </button>
+                            </div>
+                            <input type="hidden" name="idProduct" id="idProduct" th:value="${product.id}">
+                        </form>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </section>
+    <section class="meal Related__Items">
+        <div class="container">
+            <h3 class="Related__Items__heading">Related Items</h3>
+            <div class="meal__inner Lunch__inner">
+                <div class="meal__list__inner">
+                    <div class="meal__list">
+                        <article class="meal__item" th:each="item : ${products}">
+                            <figure class="meal__item__thumb">
+                                <a th:href="'/productDetails/' + ${item.id}">
+
+                                    <img
+                                            th:src="${item.imageLink}"
+                                            th:alt="${item.name}"
+                                            class="meal__item__img"
+                                    />
+                                </a>
+                            </figure>
+
+                            <a th:href="'productDetails/' + ${item.id}">
+                                <h3
+                                        class="meal__item__heading line-clamp" th:text="${item.name}"
+                                >
+
+                                </h3>
+                            </a>
+                            <p
+                                    class="meal__item__desc section-desc line-clamp line-2"
+                                    th:text="${item.description}"
+                            >
+
+                            </p>
+                            <div class="meal__item__row">
+                                <a
+                                        href=""
+                                        class="section-desc meal__item__Cta"
+                                >Order Now</a
+                                >
+                                <span class="meal__item__price" th:text=" ${item.getPriceFloat()}"
+                                ></span
+                                >
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div th:insert="~{footer::footer}"></div>
+</body>
+
+</html>

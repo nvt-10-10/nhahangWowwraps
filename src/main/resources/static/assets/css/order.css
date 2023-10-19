@@ -1,0 +1,49 @@
+.show-info{
+
+}
+
+.main-addEdit{
+    padding: 0;
+}
+.header-addEdit{
+    align-items: center;
+}
+
+.header-sticky{
+    padding: 30px;
+    background: inherit;
+}
+
+.icon-close{
+    position: static;
+}
+
+.dl,.dl-row,.dt,.dd{
+    width: 100%;
+}
+
+.dl{
+    padding: 30px ;
+}
+
+.dl-row{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    margin-bottom: 20px;
+}
+
+.dt{
+    font-weight: bold;
+}
+
+.dd{
+    margin-top: 10px;
+}
+
+.span-2{
+    grid-column: span 2;
+}
+#listProduct,
+#message{
+    max-height: 100px;
+}

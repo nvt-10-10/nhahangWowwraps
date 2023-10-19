@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: "";
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-size: 1.6rem;
+            font-family: "Plus Jakarta Sans", "Libre Bodoni", serif;
+        }
+    </style>
+</head>
+<body>
+<div style="color: black">
+    <div style="width: 600px; margin: 0 auto; color: black;">
+        <figure style="height: 50px; text-align: center;">
+            <img src="https://scontent.fsgn5-8.fna.fbcdn.net/v/t1.15752-9/375198639_840436457661894_7285537837522234779_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=hQowUSUbKs0AX9iSDqC&_nc_ht=scontent.fsgn5-8.fna&oh=03_AdRCByjC7ADtw-ouajKJSYKDlYRgAJTYl7RMporkFrXldA&oe=651E3F8B"
+                 alt="" style="height: 100%; object-fit: cover"/>
+            <figcaption style="margin-top: 10px;">Wapswraps</figcaption>
+        </figure>
+
+        <div style="margin-top: 30px;padding-bottom: 10px; border-bottom: 1px solid #ccc; color: black;">
+            <span th:text="${'Xin chào ' + order.lastName + ' ' + order.firstName}"></span>
+
+            <br>
+            <span style="display: block;margin-top:10px;">Đơn hàng <span th:text="${order.id}"></span> của
+                        bạn đã được giao thành công ngày <span th:text="${order.getDateOrder}"></span></span>
+            <span style="display: block;margin-top:15px;">
+                        Vui lòng đăng nhập Wowwraps để xác nhận bạn đã nhận hàng
+                        và hài lòng với sản phẩm trong vòng 3 ngày.
+                    </span>
+
+            <div style="text-align: center; margin-top: 10px">
+                <a href=""
+                   style="display: inline-flex; text-decoration: none; padding: 8px 16px; background: rgb(238, 77, 45);color: aliceblue; border-radius: 2px;">Đã
+                    nhận hàng</a>
+            </div>
+        </div>
+
+        <div class="order" style="color: black">
+            <div class="order-info" style="color: black;">
+                <div style="margin-top: 10px">
+                    <h3 style="font-weight: bold">
+                        THÔNG TIN ĐƠN HÀNG - DÀNH CHO NGƯỜI MUA
+                    </h3>
+                    <div
+                            style="
+                                    margin-top: 20px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    gap: 10px;
+                                "
+                    >
+                                <span class="item-attributes">
+                                    Mã đơn hàng:
+                                </span>
+                        <span style="width: 50%" th:text ="${order.id}"> </span>
+                    </div>
+                    <div
+                            style="
+                                    margin-top: 20px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    gap: 10px;
+                                "
+                    >
+                                <span class="item-attributes">
+                                    Ngày đặt hàng:
+                                </span>
+                        <span style="width: 50%" th:text = "${order.getDateOrder}">
+                                    25/11/2021 00:24:56</span
+                        >
+                    </div>
+                    <div
+                            style="
+                                    margin-top: 20px;
+                                    display: none;
+                                    justify-content: space-between;
+                                    gap: 10px;
+                                "
+                    >
+                                <span class="item-attributes">
+                                    Tin nhắn đến Người bán:
+                                </span>
+                        <span style="width: 50%;" >
+                                    Shop đừng ghi tên hàng là máy uốn tóc nhé ,
+                                    ghi giúp em phụ kiện máy tính</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-list" style="margin-top: 30px ;color: black;">
+                <div
+                        class="product-item"
+                        style="
+                                width: 100%;
+                                margin-bottom: 30px;
+                                padding-bottom: 10px;
+                                border-bottom: 1px solid #ccc;
+                            "
+                        th:each="item,index : ${orderDetailList}"
+                >
+                    <p class="product-item__name" th:text="${index.count+' '+item.product.name}">
+                        1. Quần legging nữ SamSu bigsize dài lưng cạp
+                        cao giữ nhiệt legging thun ôm bó vải dày dặn
+                        bigsize 40kg tới 100kg Q15
+                    </p>
+                    <div
+                            style="
+                                    width: 100%;
+                                    display: flex;
+                                    margin-top: 10px;
+                                "
+                    >
+                                <span style="width: 50%; padding-right: 0px">
+                                   ID
+                                </span>
+                        <span style="width: 50%" th:text="${item.product.id}">
+                                  </span
+                                  >
+                    </div>
+                    <div
+                            style="
+                                    width: 100%;
+                                    display: flex;
+                                    margin-top: 10px;
+                                "
+                    >
+                                <span style="width: 50%; padding-right: 0px">
+                                  Đơn giá
+                                </span>
+                        <span style="width: 50%" th:text="${'$ '+item.product.price}">
+                                  </span
+                                  >
+                    </div>
+                    <div
+                            style="
+                                    width: 100%;
+                                    display: flex;
+                                    margin-top: 10px;
+                                "
+                    >
+                                <span style="width: 50%; padding-right: 0px">
+                                    Số lượng:
+                                </span>
+                        <span style="width: 50%" th:text="${item.quantity}"> 1</span>
+                    </div>
+
+                    <div
+                            style="
+                                    width: 100%;
+                                    display: flex;
+                                    margin-top: 10px;
+                                "
+                    >
+                                <span style="width: 50%; padding-right: 0px">
+                                    Giá:
+                                </span>
+                        <span style="width: 50%" th:text="${'$ '+item.quantity*item.product.price}"> 109,000₫</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                    class=""
+                    style="
+                            width: 100%;
+                            margin-bottom: 30px;
+                            padding-bottom: 10px;
+                            border-bottom: 1px solid #ccc;
+                            color: black;
+                        "
+            >
+                <div
+                        style="
+                                width: 100%;
+                                margin-top: 20px;
+                                display: flex;
+                                justify-content: space-between;
+                                gap: 10px;
+                                color: black;
+                            "
+                >
+                    <span style="width: 50%; padding-right: 0px"> Tổng tiền: </span>
+                    <span style="width: 50%" th:text="${'$ '+total}"> ₫115,000</span>
+                </div>
+                <div
+                        style="
+                         width: 100%;
+                                margin-top: 20px;
+                                display: flex;
+                                justify-content: space-between;
+                                gap: 10px;
+                                color: black;
+                            "
+                        th:if="${order.voucher!=null}"
+                >
+                           <span style="width: 50%; padding-right: 0px">
+                                Voucher:
+                            </span>
+                    <span style="width: 50%" th:text="${order.voucher.value+order.voucher.unit}"></span>
+                </div>
+                <div
+                        style="
+                         width: 100%;
+                                margin-top: 20px;
+                                display: flex;
+                                justify-content: space-between;
+                                gap: 10px;
+                                color: black;
+                            "
+                >
+                           <span style="width: 50%; padding-right: 0px">
+                                Tổng thanh toán:
+                            </span>
+                    <span style="width: 50%" th:text="${'$ '+order.intoMoney}"> ₫105,800</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

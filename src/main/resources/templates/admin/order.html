@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/reset.css"/>
+    <link rel="stylesheet" href="/assets/css/commonAdmin.css"/>
+    <link rel="stylesheet" href="/assets/css/main_control.css"/>
+    <link rel="stylesheet" href="/assets/css/order.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+    />
+    <style>
+        .table-item,
+        .table-title {
+            gap: 10px;
+            grid-template-columns: 0.5fr 2fr 3.5fr 3.5fr 1fr;
+        }
+
+        .confirm-button, .cancel-button, .edit-button {
+            display: inline-block;
+            padding: 8px 5px;
+        }
+
+        .action {
+            justify-content: end;
+        }
+    </style>
+</head>
+<body>
+<div th:insert="admin/header :: header"></div>
+<main class="main">
+    <h2 class="title">Category List</h2>
+
+
+
+    <section class="main_control">
+        <div class="action">
+
+            <form class="form-action" id="searchForm">
+                <input
+                        type="search"
+                        name="keyword"
+                        class="input-search"
+                        placeholder="Search"
+                />
+                <input
+                        type="submit"
+                        value="Search"
+                        class="search-btn"
+                />
+            </form>
+        </div>
+
+        <section class="table">
+            <div class="table-title">
+                <span>ID</span>
+                <span>Name</span>
+                <span>Dish</span>
+                <span>Message</span>
+                <span>Action</span>
+            </div>
+
+            <div id="List">
+                <div class="table-item" th:each="item,index : ${orders}">
+                    <div class="table-item-column"><p th:text="${item.id}">1</p></div>
+                    <div class="table-item-column ">
+                        <p th:text="${item.name()}" class="line-clamp">Nguyen Van Tuyen</p>
+                    </div>
+                    <div class="table-item-column">
+                        <p th:text="${item.dishList()}">Nguyen Van Tuyen</p>
+                    </div>
+                    <div class="table-item-column">
+                        <p th:text="${item.message}">Nguyen Van Tuyen</p>
+                    </div>
+
+
+                    <div class="table-item-column table-item-action">
+                        <a class="show-button" th:data-id="${item.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"/>
+                            </svg>
+                        </a>
+
+                        <a class="confirm-button" th:data-id="${item.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <style> .confirm-button svg {
+                                    fill: #3bff05
+                                }</style>
+                                <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                            </svg>
+                        </a>
+
+                        <a class="cancel-button" th:data-id="${item.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                                <style> .cancel-button svg {
+                                    fill: #ff0000
+                                }</style>
+                                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div id="paginationContainer">
+            <div class="page" th:if="${pageCount>1}">
+                <a class="page__link" id="backPage">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="21"
+                            height="10"
+                            viewBox="0 0 21 10"
+                            fill="none"
+                    >
+                        <path
+                                d="M20 5H1M1 5C2.43939 4.78667 5.31818 3.688 5.31818 1M1 5C2.43939 5.21333 5.31818 6.312 5.31818 9"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </svg>
+                    Previous</a
+                >
+                <ul class="page__list" th:data-countpage="${pageCount}">
+                    <li class="page__item" th:each="pageNum : ${#numbers.sequence(1, pageCount)}">
+                        <a href="#!" class="page__item__link"
+                           th:text="${pageNum}"
+                           th:data-indexpage="${pageNum}-1"
+                           th:classappend="${pageNum - 1 == indexPage ? 'page__active ' : ''}"
+                           th:if="${pageNum <= 5 or pageNum == chefCount}">
+                            <!-- Hiển thị các số từ 1 đến 5 và số cuối cùng -->
+                            <span th:if="${pageNum == chefCount}" th:text="${pageNum}">5</span>
+                            ...
+                        </a>
+                    </li>
+                </ul>
+
+                <a class="page__link" id="nextPage"
+                >Next
+
+                    <svg
+                            class="page__next"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="21"
+                            height="10"
+                            viewBox="0 0 21 10"
+                            fill="none"
+                    >
+                        <path
+                                d="M20 5H1M1 5C2.43939 4.78667 5.31818 3.688 5.31818 1M1 5C2.43939 5.21333 5.31818 6.312 5.31818 9"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <section class="Notification">
+        <img
+                src="/assets/icons/index-admin/success.png"
+                alt=""
+                class="notification__icon"
+        />
+        <p class="message">Them san pham thanh cong</p>
+    </section>
+</main>
+
+<section class="Add-edit show-info">
+    <div class="main-addEdit">
+        <div class="header-sticky">
+            <header class="header-addEdit">
+                <h2 class="form-title">
+                    Order Details</h2>
+                <img src="/assets/icons/index-admin/close.png" alt="" class="icon-close" id="close"/>
+            </header>
+        </div>
+
+
+        <dl class="dl">
+            <div class="dl-row">
+                <div class="dl-group">
+                    <dt class="dt">Name</dt>
+                    <dd class="dd" id="name">Message</dd>
+                </div>
+                <div class="dl-group">
+                    <dt class="dt">Company Name</dt>
+                    <dd class="dd" id="companyName">Message</dd>
+                </div>
+            </div>
+
+            <div class="dl-row">
+                <div class="dl-group">
+                    <dt class="dt">Email</dt>
+                    <dd class="dd" id="email">Message</dd>
+                </div>
+                <div class="dl-group">
+                    <dt class="dt">Phone</dt>
+                    <dd class="dd" id="phone">Message</dd>
+                </div>
+            </div>
+
+            <div class="dl-row">
+                <div class="dl-group">
+                    <dt class="dt">Address</dt>
+                    <dd class="dd" id="address">Message</dd>
+                </div>
+                <div class="dl-group">
+                    <dt class="dt">Date</dt>
+                    <dd class="dd" id="date">Message</dd>
+                </div>
+            </div>
+
+            <div class="dl-row">
+                <div class="dl-group">
+                    <dt class="dt">Total Amount</dt>
+                    <dd class="dd" id="total_amount">Message</dd>
+                </div>
+                <div class="dl-group">
+                    <dt class="dt">Voucher</dt>
+                    <dd class="dd" id="voucher">Message</dd>
+                </div>
+            </div>
+            <div class="dl-row">
+                <div class="dl-group">
+                    <dt class="dt">Into Money</dt>
+                    <dd class="dd" id="intoMoney">Into Money</dd>
+                </div>
+                <div class="dl-group">
+                    <dt class="dt">paymentMethods</dt>
+                    <dd class="dd" id="paymentMethods">Message</dd>
+                </div>
+            </div>
+
+
+            <div class="dl-row">
+                <div class="dl-group span-2">
+                    <dt class="dt">List Dish</dt>
+                    <dd class="dd" id="listProduct">XXXXXXXXXXXX XXXXXXXXXXXXxxx XXXXXXXXXXXX
+                        XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX
+                        XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX
+                        XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX
+                        XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxxXXXXXXXXXXXX
+                        XXXXXXXXXXXXxxxXXXXXXXXXXXX XXXXXXXXXXXXxxx
+                    </dd>
+                </div>
+            </div>
+
+            <div class="dl-row">
+                <div class="dl-group span-2">
+                    <dt class="dt">Message</dt>
+                    <dd class="dd" id="message">Message</dd>
+                </div>
+            </div>
+        </dl>
+    </div>
+
+</section>
+
+<!--</section>-->
+<input type="hidden" id="indexPage" th:value="${indexPage}">
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--<script src="/assets/js/code.jquery.com_jquery-3.7.0.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/assets/js/order.js"></script>
+
+</html>

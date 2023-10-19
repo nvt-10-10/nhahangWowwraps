@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home</title>
+    <!--    JS-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/index.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/reset.css"/>
+    <link rel="stylesheet" href="/assets/css/Common.css"/>
+    <link rel="stylesheet" href="/assets/css/index.css"/>
+    <link rel="stylesheet" href="/assets/css/reponse__index.css"/>
+    <!-- Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+    />
+    <!-- favicon -->
+    <!-- favicon -->
+    <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/assets/favicon/android-icon-192x192.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/assets/favicon/favicon-96x96.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+</head>
+<body>
+<div th:insert="header:: header"></div>
+
+<main>
+    <!-- hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__inner">
+                <div class="hero__content">
+                    <p class="section-desc section-title">
+                        Welcome to Our Restaurant
+                    </p>
+                    <h2 class="section-heading hero__heading">
+                        The Best Food For The Best Moments
+                    </h2>
+                    <p class="section-desc hero__desc">
+                        We've got famous chefs and stars—Julia Child, Sophia
+                        Loren, Virginia Woolf—to thank for some of the
+                        greatest food quotes of all time.
+                    </p>
+
+                    <a href="#!" class="section-cta__action hero__action"
+                    >View more</a
+                    >
+                </div>
+                <figure>
+                    <img
+                            loading="lazy"
+                            src="./assets/imgs/index/hero__left.png"
+                            alt="hero-img__decor"
+                            class="hero-img__decor"
+                    /><img
+                        src="./assets/imgs/index/hero__right.png"
+                        alt="hero-img__decor"
+                        class="hero-img__decor"
+                />
+                </figure>
+
+            </div>
+        </div>
+    </section>
+    <!-- hero-contact -->
+    <section class="hero-contact">
+        <div class="container">
+            <div class="hero-contact__list">
+                <!-- hero-contact__item 1 -->
+                <section class="hero-contact__item">
+                    <h3 class="hero-contact__item__heading">
+                        Our Online
+                    </h3>
+                    <p class="hero-contact__item__desc">
+                        245-5Waterview Lane New Mexico, 87120
+                    </p>
+                </section>
+
+                <!-- hero-contact__item 1 -->
+                <section class="hero-contact__item">
+                    <h3 class="hero-contact__item__heading">
+                        Our Address
+                    </h3>
+                    <p class="hero-contact__item__desc">
+                        0123-456-7890 <br/>
+                        0123-654-7890
+                    </p>
+                </section>
+
+                <!-- hero-contact__item 1 -->
+                <section class="hero-contact__item">
+                    <h3 class="hero-contact__item__heading">
+                        Our Hours
+                    </h3>
+                    <p class="hero-contact__item__desc">
+                        Mon - Fri 09:00 AM - 10:00 PM <br/>
+                        Sat - Sun 09:00 AM - 10:00 PM
+                    </p>
+                </section>
+            </div>
+        </div>
+    </section>
+    <!-- Our Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <section class="gallery__content">
+                <p class="section-title section-desc">Our Gallery</p>
+                <h2 class="section-heading gallery__heading">
+                    Try Our Special Dishes
+                </h2>
+                <p class="section-desc gallery__desc">
+                    A list of top Bangladeshi food including mains,
+                    drinks, and deserts you must try while in
+                    Bangladesh, for an authentic experience. Check now!
+                </p>
+            </section>
+
+            <div class="gallery__list">
+                <!-- gallery__item 1 -->
+
+                <article class="gallery__item" th:each="item: ${prodcutSpecials}">
+                    <a th:href="'productDetails/' + ${item.id}">
+                        <figure class="gallery__item__thumb">
+                            <img
+                                    loading="lazy"
+                                    th:src="${item.convertToBase64()}"
+                                    th:alt="${item.name}"
+                                    class="gallery__item__img"
+                            />
+                            <div class="gallery__item__info">
+                                <h3 class="gallery__item__title" th:text="${item.getCategory().name}">
+
+                                </h3>
+                                <p class="gallery__item__desc section-desc" th:text="${item.name}">
+                                    Filet Mignon sandwich with fries
+                                </p>
+                            </div>
+                        </figure>
+                    </a>
+
+                </article>
+            </div>
+
+        </div>
+        <img
+                loading="lazy"
+                src="./assets/icons/index/gallery__decor.svg"
+                alt=""
+                class="gallery__decor"
+        />
+    </section>
+    <!-- menu -->
+    <section class="menu">
+        <div class="container">
+            <section class="menu__content">
+                <p class="section-desc section-title">Our menu</p>
+                <h2 class="section-heading menu__heading">
+                    Choose & Taste What You Like
+                </h2>
+                <p class="menu__desc section-desc">
+                    A list of top Bangladeshi food including mains,
+                    drinks, and deserts you must try while in
+                    Bangladesh, for an authentic experience. Check now!
+                </p>
+            </section>
+
+
+            <nav class="menu__nav">
+                <ul class="menu__nav__list">
+                    <li class="menu__nav__item">
+                        <a href="#!" class="menu__nav__link menu__nav__active">All</a>
+                    </li>
+                    <li class="menu__nav__item" th:each="category : ${categories}">
+                        <a href="#!" class="menu__nav__link category-link" th:text="${category.name}"
+                           th:data-category-id="${category.id}"></a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <div class="menu__list" id="menuList">
+                <div th:each="item : ${products}">
+                    <a th:href="'productDetails/' + ${item.id}">
+                        <article class="menu__item">
+                            <figure class="menu__item__thumb">
+                                <img loading="lazy" th:src="${item.convertToBase64()}"th:alt="${item.name}"
+                                     class="menu__item__img"/>
+                            </figure>
+                            <h4 class="menu__item__name" th:text="${item.name}"></h4>
+                            <span class="menu__item__price" th:text="${item.getFormattedPrice()}"></span>
+                        </article>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Service  -->
+    <section class="Service">
+        <div class="container">
+            <section class="Service__content">
+                <h2 class="section-heading Service__heading">
+                    Visit Our Restaurant
+                </h2>
+
+                <p class="section-desc Service__desc">
+                    Quality country-style menu selection, friendly and
+                    efficient service, combined with genuine value has
+                    kept Our Best serving families like yours for over
+                    28.
+                </p>
+            </section>
+
+            <div class="Service__list">
+                <!-- Service__item 1 -->
+                <figure class="Service__item">
+                    <img
+                            loading="lazy"
+                            src="./assets/imgs/index/Service_1.png"
+                            alt=""
+                            class="Service__item__img"
+                    />
+                    <figure class="Service__item__img__thumb">
+                        <img
+                                loading="lazy"
+                                src="./assets/imgs/index/Service_2_2.png"
+                                alt=""
+                                class="Service__item__img__Service"
+                        />
+                    </figure>
+                </figure>
+
+                <!-- Service__item 2 -->
+                <figure class="Service__item">
+                    <img
+                            loading="lazy"
+                            src="./assets/imgs/index/Service_2.png"
+                            alt=""
+                            class="Service__item__img"
+                    />
+                    <figure class="Service__item__img__thumb">
+                        <img
+                                loading="lazy"
+                                src="./assets/imgs/index/Service_2_2.png"
+                                alt=""
+                                class="Service__item__img__Service"
+                        />
+                    </figure>
+                </figure>
+
+                <!-- Service__item 3 -->
+                <figure class="Service__item">
+                    <img
+                            loading="lazy"
+                            src="./assets/imgs/index/Service_3.png"
+                            alt=""
+                            class="Service__item__img"
+                    />
+                    <figure class="Service__item__img__thumb">
+                        <img
+                                loading="lazy"
+                                src="./assets/imgs/index/Service_3_3.png"
+                                alt=""
+                                class="Service__item__img__Service"
+                        />
+                    </figure>
+                </figure>
+
+                <!-- Service__item 4 -->
+                <figure class="Service__item">
+                    <img
+                            loading="lazy"
+                            src="./assets/imgs/index/Service_4.png"
+                            alt=""
+                            class="Service__item__img"
+                    />
+                    <figure class="Service__item__img__thumb">
+                        <img
+                                loading="lazy"
+                                src="./assets/imgs/index/Service_4_4.png"
+                                alt=""
+                                class="Service__item__img__Service"
+                        />
+                    </figure>
+                </figure>
+
+                <!-- Service__item 5 -->
+                <figure class="Service__item">
+                    <img
+                            loading="lazy"
+                            src="./assets/imgs/index/Service_5.png"
+                            alt=""
+                            class="Service__item__img"
+                    />
+                    <figure class="Service__item__img__thumb">
+                        <img
+                                loading="lazy"
+                                src="./assets/imgs/index/Service_5_5.png"
+                                alt=""
+                                class="Service__item__img__Service"
+                        />
+                    </figure>
+                </figure>
+
+                <!-- Service__item 6 -->
+                <figure class="Service__item">
+                    <img
+                            loading="lazy"
+                            src="./assets/imgs/index/Service_6.png"
+                            alt=""
+                            class="Service__item__img"
+                    />
+                    <figure class="Service__item__img__thumb">
+                        <img
+                                loading="lazy"
+                                src="./assets/imgs/index/Service_6_6.png"
+                                alt=""
+                                class="Service__item__img__Service"
+                        />
+                    </figure>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <!-- book -->
+    <section class="book" id="book-section">
+        <div class="container">
+            <h2 class="section-heading book__heading">Book A Table</h2>
+            <div class="book__inner">
+                <form action="book/save" method="post" class="book-form" id="book-form" th:object="${book}">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input
+                                    type="text"
+                                    name="name"
+                                    class="form-input"
+                                    placeholder="Your name"
+                                    minlength="4"
+                                    th:field="*{name}"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <input
+                                    type="text"
+                                    name="phone"
+                                    class="form-input"
+                                    placeholder="Phone number"
+                                    pattern="(84|0[35789])[0-9]{8}\b"
+                                    th:field="*{phone}"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input
+                                    type="email"
+                                    name="email"
+                                    class="form-input"
+                                    placeholder="Email"
+                                    th:field="*{email}"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <input
+                                    type="number"
+                                    name="numberPerson"
+                                    class="form-input"
+                                    placeholder="2 Person"
+                                    min="1"
+
+                                    th:field="*{numberPerson}"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input
+                                    id="time"
+                                    type="time"
+                                    name="time1"
+                                    class="form-input"
+                                    value="17:30"
+                                    min="11:00"
+                                    max="24:00"
+                                    autocomplete
+
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <input
+                                    type="date"
+                                    name="date"
+                                    class="form-input"
+                                    value="2022-10-29"
+                                    th:field="*{date}"
+                            />
+                        </div>
+
+                    </div>
+                    <input
+                            type="hidden"
+                            name="reason"
+
+                            th:field="*{reason}"
+                    />
+                    <div class="form-row">
+                       <textarea class="form-input form-input-textarea" placeholder="Message" th:field="*{message}"  name="message">
+                       </textarea>
+                    </div>
+                    <div class="form-action">
+                        <button class="form-submit section-desc" id="submitBook" type="submit">
+                            Book now
+                        </button>
+                    </div>
+                </form>
+
+                <figure class="book__thumb">
+                    <img
+                            src="./assets/imgs/index/book.png"
+                            alt=""
+                            loading="lazy"
+                            class="book__img"
+                    />
+                </figure>
+            </div>
+        </div>
+    </section>
+    <!-- chef -->
+    <section class="chef">
+        <div class="container">
+                    <span class="section-desc chef__title"
+                    >Tasty and Crunchy</span
+                    >
+            <h2 class="section-heading chef__heading">Our Chef</h2>
+            <div class="chef__list">
+                <!-- chef__item 1 -->
+                <figure class="chef__item" th:each="item :${chefs}">
+                    <img
+                            th:src="${item.convertToBase64()}"
+                            th:alt="${item.name}"
+                            class="chef__item__img"
+                    />
+                    <figcaption class="chef__item__name" th:text="${item.name}">
+
+                    </figcaption>
+                </figure>
+
+
+            </div>
+
+            <div class="chef__Cta">
+                <button id="chef_Cta_back" class="chef_Cta_button">
+                    <svg
+                            class="chef__Cta__back chef__Cta__btn"
+
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="122"
+                            height="22"
+                            viewBox="0 0 122 22"
+                            fill="none"
+                    >
+                        <path
+                                d="M81 11H121M121 11C117.212 10.4667 109.636 7.72 109.636 1M121 11C117.212 11.5333 109.636 14.28 109.636 21"
+                                stroke="#FB8F2C"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
+                <button id="chef_Cta_next" class="chef_Cta_button">
+                    <svg
+                            class="chef__Cta__btn"
+
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="122"
+                            height="22"
+                            viewBox="0 0 122 22"
+                            fill="none"
+                    >
+                        <path
+                                d="M81 11H121M121 11C117.212 10.4667 109.636 7.72 109.636 1M121 11C117.212 11.5333 109.636 14.28 109.636 21"
+                                stroke="#FB8F2C"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- blog -->
+    <section class="blog">
+        <div class="container">
+            <span class="section-desc blog-title"> Our blog </span>
+            <h2 class="section-heading blog__heading">
+                Recent Articles
+            </h2>
+
+            <div class="blog__list">
+                <!-- blog__item 1 -->
+                <article class="blog__item" th:each="item:${new3Products}">
+                    <figure class="blog__item__thumb">
+                        <a href="">
+                            <img
+                                    th:src="${item.convertToBase64()}"
+                                    th:alt="${item.name}"
+                                    class="blog__item__img"
+                            />
+                        </a>
+                    </figure>
+
+                    <div class="blog__item__top">
+                        <!-- Thẻ span chứa ngày, thuộc tính th:text được sử dụng để hiển thị ngày động -->
+                        <span class="blog__item__date section-desc"
+                              th:text="${#dates.format(item.date, 'MMMM d, yyyy')}"></span>
+
+
+                        <span
+                        ><a
+                                href="#!"
+                                class="blog__item__comment section-desc"
+                                th:text="'Comment  ' + ${item.getSizeReview()}"
+                        ></a
+                        ></span
+                        >
+                    </div>
+                    <a href="#!">
+                        <h3
+                                class="blog__item__heading line-clamp line-2 climp"
+                                th:text="${item.name}"
+                        >
+
+                        </h3>
+                    </a>
+
+                    <p
+                            class="section-desc blog__item__desc line-clamp line-3"
+                            th:text="${item.getDescription()}"
+                    >
+
+                    </p>
+
+                    <a
+                            href="#!"
+                            class="section-cta__action blog__item__cta__action"
+                    >Read Now</a
+                    >
+                </article>
+            </div>
+
+
+            <div class="blog__cta">
+                <a href="#!" class="blog__cta__action section-desc"
+                >Explore All Blogs
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="11"
+                            viewBox="0 0 18 11"
+                            fill="none"
+                    >
+                        <path
+                                d="M1 5.5H17M17 5.5C15.4848 5.26 12.4545 4.024 12.4545 1M17 5.5C15.4848 5.74 12.4545 6.976 12.4545 10"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- download -->
+    <section class="download">
+        <div class="container">
+            <div class="download__inner">
+                <section class="download__content">
+                    <h2 class="section-heading download__heading">
+                        Download our mobile app.
+                    </h2>
+                    <p class="section-desc download__desc">
+                        I will never forgive anyone to choose the way to
+                        get the thing.
+                    </p>
+                    <figure class="download__cta">
+                        <a href="#!"
+                        ><img
+                                src="./assets/icons/index/google_play.svg"
+                                alt=""
+                                class="download__cta__action"/></a
+                        ><a href="#!"
+                    ><img
+                            src="./assets/icons/index/app_store.svg"
+                            alt=""
+                            class="download__cta__action"
+                    /></a>
+                    </figure>
+                </section>
+
+                <figure class="download__decor__right">
+                    <img
+                            src="./assets/imgs/index/download__decor__right__img_1.png"
+                            alt=""
+                            class="download__decor__right__img"
+                    /><img
+                        src="./assets/imgs/index/download__decor__right__img_2.png"
+                        alt=""
+                        class="download__decor__right__img"
+                />
+                </figure>
+            </div>
+        </div>
+        <img
+                src="./assets/icons/index/download-decor.svg"
+                alt=""
+                class="download__decor"
+        />
+    </section>
+    <section class="Subscribe">
+        <div class="container">
+            <div class="Subscribe__inner">
+                        <span class="section-desc Subscribe__title"
+                        >Subscribe to our</span
+                        >
+                <h2 class="section-heading Subscribe__heading">
+                    Newsletter
+                </h2>
+
+                <p class="section-desc Subscribe__desc">
+                    Subscribe to our newsletter and receive 15% discount
+                    from your order.
+                </p>
+                <form action="#!" class="Subscribe-form" th:object="${subscribe}">
+                    <div class="Subscribe-form__inner">
+                        <input
+                                type="email"
+                                name="email"
+                                class="Subscribe-form__input"
+                                placeholder="Enter Email"
+                                th:field="*{email}"
+                        />
+                        <button
+                                class="Subscribe-form__submit section-desc"
+                                id="submitSubscribe"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div th:insert="footer:: footer"></div>
+</body>
+
+</html>

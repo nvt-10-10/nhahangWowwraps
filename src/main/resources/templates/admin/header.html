@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/commonAdmin.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+    />
+</head>
+<body>
+<header class="header"  th:fragment=”header”>
+    <nav class="nav">
+        <figure class="logo__header__thumb">
+            <img
+                    src="/assets/icons/logo__footer.png"
+                    alt=""
+                    class="logo__header"
+            />
+        </figure>
+        <ul class="nav-list">
+
+            <div th:each="item : ${session.menuAdminItems}">
+                <a th:href="${item.link}">
+                    <li class="nav-item" >
+                        <img src="" alt="" class="nav-item__icon" />
+                        <span class="nav-item__title section-desc"
+                              th:classappend="${item.name == pageUrl ? 'navbar-header__Active' : ''}"
+                              th:text="${item.name}"></span>
+                    </li>
+                </a>
+
+            </div>
+
+        </ul>
+    </nav>
+</header>
+</body>
+</html>

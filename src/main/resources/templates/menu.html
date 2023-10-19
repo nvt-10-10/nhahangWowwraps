@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Menu</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css"/>
+    <link rel="stylesheet" href="./assets/css/Common.css"/>
+    <link rel="stylesheet" href="./assets/css/menu.css"/>
+    <link rel="stylesheet" href="./assets/css/reponse__menu.css"/>
+
+
+<!--    <link rel="stylesheet" href="/assets/js/jquery.js"/>-->
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Js -->
+    <script src="/assets/js/menu.js"></script>
+    <!-- Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+</head>
+
+<body>
+<div th:insert="~{header.html ::header}"></div>
+<main>
+    <section class="meal Breakfast">
+        <div class="container">
+            <div class="meal__inner">
+                <section class="section-title">
+                    <h2 class="section-heading section-title__heading">
+                        Breakfast
+                        <figure class="icon-menu__thumb">
+                            <img
+                                    src="./assets/icons/menu/title-icon.png"
+                                    alt=""
+                                    class="icon-menu__img"
+                            />
+                        </figure>
+                    </h2>
+                </section>
+                <div class="meal__list__inner" id="Breakfast">
+                    <div class="meal__list" >
+                        <article class="meal__item" th:each="item : ${BreakfastProducts}">
+                            <figure class="meal__item__thumb">
+                                <a  th:href="'productDetails/' + ${item.id}">
+                                    <img
+                                            th:src="${item.convertToBase64()}"
+                                            th:alt="${item.name}"
+                                            class="meal__item__img"
+                                    />
+                                </a>
+                            </figure>
+
+                            <a  th:href="'productDetails/' + ${item.id}">
+                                <h3
+                                        class="meal__item__heading line-clamp" th:text="${item.name}"
+                                >
+
+                                </h3>
+                            </a>
+                            <p
+                                    class="meal__item__desc section-desc line-clamp line-2"
+                                    th:text="${item.description}"
+                            >
+
+                            </p>
+                            <div class="meal__item__row">
+                                <a
+                                        href=""
+                                        class="section-desc meal__item__Cta"
+                                >Order Now</a
+                                >
+                                <span class="meal__item__price" th:text="${item.getFormattedPrice()}"
+                                ></span
+                                >
+                            </div>
+                        </article>
+
+
+                    </div>
+
+                    <button class="control">
+                        <svg
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+
+                    <button class="control btn-back">
+                        <svg
+                                class="control-back"
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Journey">
+        <div class="container">
+            <section class="Journey__content">
+                <h2 class="section-heading Journey__heading">
+                    Food is not just eating energy
+                </h2>
+                <p class="section-desc Journey__desc">
+                    It’s an experience.
+                </p>
+
+                <a href="" class="Journey__cta">Order Now</a>
+            </section>
+        </div>
+    </section>
+
+    <section class="meal Luch">
+        <div class="container">
+            <div class="meal__inner">
+                <section class="section-title">
+                    <h2 class="section-heading section-title__heading">
+                        Luch
+                        <figure class="icon-menu__thumb">
+                            <img
+                                    src="./assets/icons/menu/title-icon.png"
+                                    alt=""
+                                    class="icon-menu__img"
+                            />
+                        </figure>
+                    </h2>
+                </section>
+                <div class="meal__list__inner" id="Luch">
+                    <div class="meal__list" >
+                        <article class="meal__item" th:each="item : ${StartersProducts}">
+                            <figure class="meal__item__thumb">
+                                <a  th:href="'productDetails/' + ${item.id}">
+                                    <img
+                                            th:src="${item.convertToBase64()}"
+                                            th:alt="${item.name}"
+                                            class="meal__item__img"
+                                    />
+                                </a>
+                            </figure>
+
+                            <a  th:href="'productDetails/' + ${item.id}">
+                                <h3
+                                        class="meal__item__heading line-clamp" th:text="${item.name}"
+                                >
+
+                                </h3>
+                            </a>
+                            <p
+                                    class="meal__item__desc section-desc line-clamp line-2"
+                                    th:text="${item.description}"
+                            >
+
+                            </p>
+                            <div class="meal__item__row">
+                                <a
+                                        href=""
+                                        class="section-desc meal__item__Cta"
+                                >Order Now</a
+                                >
+                                <span class="meal__item__price"th:text="${item.getFormattedPrice()}"
+                                ></span
+                                >
+                            </div>
+                        </article>
+
+
+                    </div>
+
+                    <button class="control">
+                        <svg
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+
+                    <button class="control btn-back">
+                        <svg
+                                class="control-back"
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+                <img
+                        src="./assets/icons/menu/Lunch-decor2.svg"
+                        alt=""
+                        class="Lunch__inner-icon-decor"
+                />
+            </div>
+        </div>
+    </section>
+
+    <section class="meal Dinner">
+        <div class="container">
+            <div class="meal__inner">
+                <section class="section-title">
+                    <h2 class="section-heading section-title__heading">
+                        Dinner
+                        <figure class="icon-menu__thumb">
+                            <img
+                                    src="./assets/icons/menu/title-icon.png"
+                                    alt=""
+                                    class="icon-menu__img"
+                            />
+                        </figure>
+                    </h2>
+                </section>
+                <div class="meal__list__inner" id="Dinner">
+                    <div class="meal__list" >
+                        <article class="meal__item" th:each="item : ${DinnerProducts}">
+                            <figure class="meal__item__thumb">
+                                <a  th:href="'productDetails/' + ${item.id}">
+                                    <img
+                                            th:src="${item.convertToBase64()}"
+                                            th:alt="${item.name}"
+                                            class="meal__item__img"
+                                    />
+                                </a>
+                            </figure>
+
+                            <a  th:href="'productDetails/' + ${item.id}">
+                                <h3
+                                        class="meal__item__heading line-clamp" th:text="${item.name}"
+                                >
+
+                                </h3>
+                            </a>
+                            <p
+                                    class="meal__item__desc section-desc line-clamp line-2"
+                                    th:text="${item.description}"
+                            >
+
+                            </p>
+                            <div class="meal__item__row">
+                                <a
+                                        href=""
+                                        class="section-desc meal__item__Cta"
+                                >Order Now</a
+                                >
+                                <span class="meal__item__price" th:text="${item.getFormattedPrice()}"
+                                ></span
+                                >
+                            </div>
+                        </article>
+
+
+                    </div>
+
+                    <button class="control">
+                        <svg
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+
+                    <button class="control btn-back">
+                        <svg
+                                class="control-back"
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="meal Starters">
+        <div class="container">
+            <div class="meal__inner">
+                <section class="section-title">
+                    <h2 class="section-heading section-title__heading">
+                        Starters
+                        <figure class="icon-menu__thumb">
+                            <img
+                                    src="./assets/icons/menu/title-icon.png"
+                                    alt=""
+                                    class="icon-menu__img"
+                            />
+                        </figure>
+                    </h2>
+                </section>
+                <div class="meal__list__inner" id="Starters">
+                    <div class="meal__list" >
+                        <article class="meal__item" th:each="item : ${StartersProducts}">
+                            <figure class="meal__item__thumb">
+                                <a  th:href="'productDetails/' + ${item.id}">
+                                    <img
+                                            th:src="${item.convertToBase64()}"
+                                            th:alt="${item.name}"
+                                            class="meal__item__img"
+                                    />
+                                </a>
+                            </figure>
+
+                            <a  th:href="'productDetails/' + ${item.id}">
+                                <h3
+                                        class="meal__item__heading line-clamp" th:text="${item.name}"
+                                >
+
+                                </h3>
+                            </a>
+                            <p
+                                    class="meal__item__desc section-desc line-clamp line-2"
+                                    th:text="${item.description}"
+                            >
+
+                            </p>
+                            <div class="meal__item__row">
+                                <a
+                                        href=""
+                                        class="section-desc meal__item__Cta"
+                                >Order Now</a
+                                >
+                                <span class="meal__item__price" th:text="${item.getFormattedPrice()}"
+                                ></span
+                                >
+                            </div>
+                        </article>
+
+
+                    </div>
+
+                    <button class="control">
+                        <svg
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+
+                    <button class="control btn-back">
+                        <svg
+                                class="control-back"
+                                width="40"
+                                height="41"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M3.125 10.9985H16.875"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                            <path
+                                    d="M11.25 5.37354L16.875 10.9985L11.25 16.6235"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div th:insert="~{footer.html::footer}"></div>
+
+</body>
+<!-- Phần HTML của bạn -->
+
+</html>

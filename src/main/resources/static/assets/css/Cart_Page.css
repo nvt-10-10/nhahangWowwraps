@@ -1,0 +1,328 @@
+:root {
+    --width-column: 100px;
+}
+
+#voucherSection {
+    display: none;
+}
+
+.cart-product {
+    margin-top: 115px;
+}
+
+.cart-product__table {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cart-product__item {
+    width: 100%;
+}
+
+.cart-product__item,
+.cart-product__title {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 3.5fr 1fr 2fr 1fr;
+    align-items: center;
+}
+
+.cart-product__title span,
+.cart-product__item div {
+    display: flex;
+    justify-self: left;
+    text-align: left;
+    float: left;
+    width: 100%;
+}
+
+.cart-product__title {
+    padding: 24px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: left;
+    /* 18 */
+    font-family: Plus Jakarta Sans;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5556; /* 155.556% */
+}
+
+.cart-product__item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cart-product__item__icon__delete {
+    margin: 0 auto;
+}
+
+.cart-product__item__img {
+    height: 130px;
+    object-fit: cover;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    border: 1px solid #ffffff;
+    white-space: nowrap;
+    background: transparent;
+    cursor: pointer;
+}
+
+.form-number-input {
+    height: 45px;
+    width: 70px;
+    text-align: center;
+    color: var(--white-80, rgba(255, 255, 255, 0.8));
+    background: transparent;
+    border: 1px solid #ffffff;
+    font-family: Plus Jakarta Sans;
+    border-left: none;
+    border-right: none;
+
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.625; /* 162.5% */
+}
+
+.form-number-input:focus {
+    outline: none;
+}
+
+.form-submit {
+    color: var(--white, #fff);
+    margin-left: 26px;
+    padding: 8px 30px;
+    background: var(--dark-orange, #fb8f2c);
+    border: 1px solid #fb8f2c;
+}
+
+.form-submit:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.from-code,
+.cart-product__cta {
+    display: flex;
+}
+
+.cart-product__cta {
+    padding: 28px 40px;
+    justify-content: space-between;
+}
+
+.form-input {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px 8px 0;
+    color: var(--white-80, rgba(255, 255, 255, 0.8));
+
+}
+
+.form-input,
+.form-input::placeholder {
+    color: var(--white-80, rgba(255, 255, 255, 0.8));
+
+    /* 16 */
+    font-family: Plus Jakarta Sans;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.625; /* 162.5% */
+}
+
+.section-desc > strong {
+    color: var(--white, #fff);
+
+    /* 18 */
+    font-family: Plus Jakarta Sans;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5555;
+}
+
+.totals {
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.totals__inner {
+    width: 50%;
+    margin-left: auto;
+}
+
+.totals__title {
+    color: var(--white, #fff);
+
+    /* H4 */
+    font-family: Libre Bodoni;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.3333; /* 133.333% */
+}
+
+.totals__main {
+    margin: 30px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.totals__item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 28px;
+}
+
+.totals__item__info {
+    width: 50%;
+}
+
+.totals__item__heading {
+    display: block;
+}
+
+.Shipping div:nth-of-type(2),
+.Shipping div:nth-of-type(3) {
+    margin-top: 14px;
+}
+
+.Shipping div:nth-last-of-type() {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.form-totals {
+    margin: 25px 0;
+}
+
+.form-group {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-input-select {
+    -webkit-appearance: none; /* Safari and Chrome */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* CSS3 Standard */
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+.form-input-select option {
+    background: transparent;
+}
+
+.form-input-select__icon {
+    position: absolute;
+    right: 24px;
+    /* top: 50%;
+    transform: translateX(-50%); */
+}
+
+/* Ẩn phần tử <select> mặc định */
+.custom-select select {
+    display: none;
+}
+
+/* Thiết lập kiểu cho tùy chọn tùy chỉnh */
+.custom-select {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.selected-option {
+    width: 100%;
+    display: block;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.options {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    top: 100%;
+    /*left: -10px;*/
+    width: calc(100% + 10px);
+    overflow-y: auto;
+    background-color: #111114;
+
+    display: none;
+    z-index: 1;
+}
+
+.options li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hiển thị tùy chọn tùy chỉnh khi người dùng nhấp vào */
+.custom-select.open .options {
+    display: block;
+}
+
+.form-totals .form-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+}
+
+.form-totals .form-input:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+.form-group-submit {
+    margin-top: 24px;
+}
+
+.form-submit-total {
+    padding: 8px 30px;
+    text-align: center;
+    background: var(--white, #fff);
+    font-weight: 600;
+    color: #111114;
+}
+
+.form-group-checkout {
+    width: 100%;
+}
+
+.form-submit-checkout {
+    width: 100%;
+    text-align: center;
+    padding: 8px 30px;
+    font-weight: 600;
+    background: var(--dark-orange, #fb8f2c);
+}
+
+.cart-product__item__delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-submit-checkout:hover {
+    cursor: pointer;
+}

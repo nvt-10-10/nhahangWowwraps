@@ -1,0 +1,16 @@
+<web-app>
+    <servlet>
+        <servlet-name>CKFinder</servlet-name>
+        <servlet-class>com.cksource.ckfinder.servlet.CKFinderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CKFinder</servlet-name>
+        <url-pattern>/ckfinder/*</url-pattern>
+    </servlet-mapping>
+
+    <multipart-config>
+        <location>/tmp</location>
+        <max-file-size>5242880</max-file-size><max-request-size>20971520</max-request-size><file-size-threshold>0</file-size-threshold>
+    </multipart-config>
+</web-app>

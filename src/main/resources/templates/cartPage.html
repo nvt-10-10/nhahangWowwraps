@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Menu</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/reset.css"/>
+    <link rel="stylesheet" href="/assets/css/Common.css"/>
+    <link rel="stylesheet" href="/assets/css/Cart_Page.css"/>
+    <!--    <link rel="stylesheet" href="/assets/css/reponse__menu.css" />-->
+    <!-- Js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/cart.js"></script>
+    <!-- Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+    />
+    <!-- W3 stars -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- favicon -->
+    <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/assets/favicon/apple-icon-76x76.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/assets/favicon/apple-icon-114x114.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/assets/favicon/apple-icon-120x120.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/assets/favicon/apple-icon-144x144.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/assets/favicon/apple-icon-152x152.png"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-icon-180x180.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/assets/favicon/android-icon-192x192.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/assets/favicon/favicon-96x96.png"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+</head>
+
+<body>
+<div th:insert="header::header"></div>
+<main>
+    <section class="cart-product">
+        <div class="container">
+            <div class="cart-product__table">
+                <div class="cart-product__title">
+                    <span></span>
+                    <span></span>
+                    <span>Food</span>
+                    <span>Price</span>
+                    <span>Quantity</span>
+                    <span>Subtotal</span>
+                </div>
+
+                <div class="cart-product__list">
+                    <div
+                            class="cart-product__item section-desc"
+                            th:each="item:${carts}"
+                            id="sp1"
+                    >
+                        <div class="cart-product__item__delete">
+                            <a href="" class="delete-cart-item" th:data-id="${item.product.id}">
+                                <svg
+                                        class="cart-product__item__icon__delete"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                >
+                                    <path
+                                            d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826"
+                                            stroke="white"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                    />
+                                    <path
+                                            d="M20.708 6.23975H3.75"
+                                            stroke="white"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                    />
+                                    <path
+                                            d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973"
+                                            stroke="white"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                    />
+                                </svg>
+
+                            </a>
+                        </div>
+                        <div>
+                            <img
+                                    th:src="${item.product.imageLink}"
+                                    th:alt="${item.product.name}"
+                                    class="cart-product__item__img"
+                            />
+                        </div>
+                        <div th:text="${item.product.name}"></div>
+                        <div class="Price" th:data-Price="${item.product.getPriceFloat()}"
+                             th:text="${item.product.price}">
+
+                        </div>
+                        <div>
+                            <button class="btn" type="button" id="btnMinus">
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="2"
+                                        viewBox="0 0 12 2"
+                                        fill="none"
+                                >
+                                    <path
+                                            d="M1 1L11 1"
+                                            stroke="white"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </button>
+                            <input
+                                    type="number"
+                                    name="number"
+                                    class="form-number-input"
+                                    th:value="${item.quantity}"
+                                    min="1"
+                                    th:max="${item.product.quantity}"
+                                    th:data-maxValue="${item.product.quantity}"
+                            />
+                            <button class="btn" type="button" id="btnPlus">
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="12"
+                                        viewBox="0 0 12 12"
+                                        fill="none"
+                                >
+                                    <path
+                                            d="M1 6L11 6M6 1L6 11"
+                                            stroke="white"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="subtotal" th:data-subtotal="${item.getSubtotal()}"
+                             th:text="${item.getSubtotalString()}">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="cart-product__cta">
+                    <form action="" class="from-code">
+                        <input
+                                type="text"
+                                name="code"
+                                id="couponCode"
+                                class="form-input"
+                                placeholder="Copon code"
+                        />
+                        <button
+                                type="button"
+                                id="applyCoupon"
+                                class="form-submit section-desc"
+                        >
+                            Apply coupon
+                        </button>
+                    </form>
+
+                    <button
+                            type="button"
+                            class="form-submit section-desc"
+                            id="updateCart"
+                    >
+                        Update Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="totals">
+        <div class="container">
+            <div class="totals__inner">
+                <h3 class="totals__title">Cart totals</h3>
+                <section class="totals__main">
+                    <section class="totals__item">
+                        <h3 class="totals__item__heading section-desc">
+                            Subtotal
+                        </h3>
+                        <div class="totals__item__info">
+                            <span class="section-desc " id="cart-product__totals" th:data-totals="${total}"
+                                  th:text="${totals}"></span>
+                        </div>
+                    </section>
+                    <section class="totals__item Shipping">
+                        <h3 class="totals__item__heading section-desc">
+                            Shipping
+                        </h3>
+                        <div class="totals__item__info">
+
+                            <div>
+                                        <span class="section-desc"
+                                        >Shipping to
+                                            <strong class="Shipping-string" th:text="${session.address}"
+                                            >New South Wales.</strong
+                                            ></span
+                                        >
+                            </div>
+                            <div
+                                    style="
+                                            display: flex;
+                                            align-items: center;
+                                            gap:10px;
+                                        "
+                            >
+                                        <span class="section-desc"
+                                        >Australia
+                                        </span>
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 20 20"
+                                        fill="none"
+                                >
+                                    <path
+                                            d="M16.6668 6.66658H14.1668V3.33325H2.50016C1.5835 3.33325 0.833496 4.08325 0.833496 4.99992V14.1666H2.50016C2.50016 15.5499 3.61683 16.6666 5.00016 16.6666C6.3835 16.6666 7.50016 15.5499 7.50016 14.1666H12.5002C12.5002 15.5499 13.6168 16.6666 15.0002 16.6666C16.3835 16.6666 17.5002 15.5499 17.5002 14.1666H19.1668V9.99992L16.6668 6.66658ZM5.00016 15.4166C4.3085 15.4166 3.75016 14.8583 3.75016 14.1666C3.75016 13.4749 4.3085 12.9166 5.00016 12.9166C5.69183 12.9166 6.25016 13.4749 6.25016 14.1666C6.25016 14.8583 5.69183 15.4166 5.00016 15.4166ZM16.2502 7.91658L17.8835 9.99992H14.1668V7.91658H16.2502ZM15.0002 15.4166C14.3085 15.4166 13.7502 14.8583 13.7502 14.1666C13.7502 13.4749 14.3085 12.9166 15.0002 12.9166C15.6918 12.9166 16.2502 13.4749 16.2502 14.1666C16.2502 14.8583 15.6918 15.4166 15.0002 15.4166Z"
+                                            fill="white"
+                                    />
+                                </svg>
+                            </div>
+
+                            <form action="" class="form-totals">
+                                <!-- HTML -->
+                                <div class="form-group">
+                                    <div class="custom-select" id="province">
+                                        <span class="selected-option section-desc">Province</span>
+                                        <ul class="options section-desc">
+                                            <!-- Các tùy chọn sẽ được thêm bằng JavaScript -->
+                                        </ul>
+                                        <input type="hidden" name="province" value="option1"/>
+                                    </div>
+                                    <svg class="form-input-select__icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M19 9L12 16L5 9" stroke="white" stroke-width="1.5"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-select" id="city">
+                                        <span class="selected-option section-desc">City</span>
+                                        <ul class="options section-desc">
+                                            <!-- Các tùy chọn sẽ được thêm bằng JavaScript -->
+                                        </ul>
+                                        <input type="hidden" name="city" value="option1"/>
+                                    </div>
+                                    <svg class="form-input-select__icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M19 9L12 16L5 9" stroke="white" stroke-width="1.5"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-select" id="ward">
+                                        <span class="selected-option section-desc">Ward</span>
+                                        <ul class="options section-desc">
+                                            <!-- Các tùy chọn sẽ được thêm bằng JavaScript -->
+                                        </ul>
+                                        <input type="hidden" name="ward" value="option1"/>
+                                    </div>
+                                    <svg class="form-input-select__icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                         height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M19 9L12 16L5 9" stroke="white" stroke-width="1.5"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+
+                                <div class="form-group">
+                                    <input
+                                            type="text"
+                                            name="specificAddress"
+                                            class="form-input"
+                                            id="specificAddress"
+                                            placeholder="specific address"
+                                            readonly
+                                    />
+                                </div>
+
+
+                                <div class="form-group-submit">
+                                    <button
+                                            type=""
+                                            class="form-submit-total section-desc"
+                                            id="updateAddress"
+                                    >
+                                        Update
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                    <section class="totals__item" id="voucherSection">
+                        <h3 class="totals__item__heading section-desc">Voucher</h3>
+                        <div class="totals__item__info">
+                            <span class="section-desc" id="voucherInfo"></span>
+                        </div>
+                    </section>
+                    <section class="totals__item">
+                        <h3 class="totals__item__heading section-desc">
+                            Total
+                        </h3>
+                        <div class="totals__item__info">
+                            <span class="section-desc" id="totals" th:data-totals="${total}" th:text="${totals}"></span>
+                        </div>
+                    </section>
+                </section>
+                <div class="form-group-checkout">
+                    <form action="/checkout" method="POST" id="form-checkout">
+                        <input type="hidden" name="textVoucher" id="textVoucher" value="">
+                        <input type="hidden" name="idVoucher" id="idVoucher" value="">
+                        <input type="hidden" name="subtotal" id="textSubtotal" value="">
+                        <input type="hidden" name="totals" id="textTotals" value="">
+
+                        <button
+                                type="button"
+                                class="form-submit-checkout section-desc"
+                                id="checkoutButton"
+                        >
+                            Proceed to Checkout
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div th:insert="footer::footer"></div>
+</body>
+
+</html>
